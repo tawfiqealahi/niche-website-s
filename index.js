@@ -76,6 +76,7 @@ async function run () {
             const email = {email: req.params.email}
             const myOrder = await orderCollection.find(email).toArray();
             res.send(myOrder);
+            
         })
 
         //remove my order
