@@ -11,10 +11,8 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.mhhgc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
-
+const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.jvpmw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-
 
 async function run () {
     try{
@@ -25,13 +23,14 @@ async function run () {
         const reviewCollection = database.collection('review');
         const usersCollection = database.collection('users');
         
-        //get all product from database
+        // get all product from database
         app.get('/products', async (req, res) => {
             const result = await productsCollection.find({}).toArray();
             res.send(result);
+            // console.log(result);
         })
 
-        //post/ add a product
+        // add a product
         app.post('/addProducts', async (req, res) => {
             const addProducts = await productsCollection.insertOne(req.body);
             res.send(addProducts);
@@ -137,7 +136,7 @@ async function run () {
         
     }
     finally{
-        // await client.close();
+        //  await client.close();
     }
 }
 run().catch(console.dir);
@@ -145,7 +144,7 @@ run().catch(console.dir);
 
 app.get('/', (req, res)  => {
     res.send('Niche Products Server Run');
-})
+});
 app.listen(port, () => {
     console.log('Niche product server at port', port)
-})
+}) 
