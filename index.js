@@ -117,6 +117,7 @@ async function run() {
       const user = await usersCollection.insertOne(req.body);
       res.send(user);
     });
+    
 
     app.put("/makeAdmin", async (req, res) => {
       const filter = { email: req.body.email };
@@ -130,7 +131,7 @@ async function run() {
         console.log(newAdmin);
       }
     });
-    
+
 
     //admin
     app.get("/admin/:email", async (req, res) => {
