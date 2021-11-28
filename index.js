@@ -125,8 +125,7 @@ async function run() {
       if (result) {
         const newAdmin = await usersCollection.updateOne(filter, {
           $set: {
-            role: "admin",
-            
+            role: "admin",  
           },
         });
         console.log(newAdmin);
