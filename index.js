@@ -130,6 +130,7 @@ async function run() {
         console.log(newAdmin);
       }
     });
+    
 
     //admin
     app.get("/admin/:email", async (req, res) => {
