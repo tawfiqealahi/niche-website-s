@@ -129,6 +129,7 @@ async function run() {
           },
         });
         console.log(newAdmin);
+        
       }
     });
 
