@@ -117,7 +117,7 @@ async function run() {
       const user = await usersCollection.insertOne(req.body);
       res.send(user);
     });
-    
+
 
     app.put("/makeAdmin", async (req, res) => {
       const filter = { email: req.body.email };
@@ -126,6 +126,7 @@ async function run() {
         const newAdmin = await usersCollection.updateOne(filter, {
           $set: {
             role: "admin",
+            
           },
         });
         console.log(newAdmin);
