@@ -150,5 +150,3 @@ app.get("/", (req, res) => {
 app.listen(port, () => {
   console.log("Niche Tawfiq product server at port", port);
 });
-
-
